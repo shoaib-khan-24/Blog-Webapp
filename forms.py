@@ -1,3 +1,4 @@
+from flask import Flask
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.fields.datetime import DateTimeField
@@ -30,4 +31,11 @@ class LoginForm(FlaskForm):
 
 class CommentForm(FlaskForm):
     text = CKEditorField("Comment", validators=[DataRequired()])
+    submit = SubmitField("Submit")
+
+class ContactForm(FlaskForm):
+    name = StringField("Name", validators=[DataRequired()])
+    email = StringField("Email Address", validators=[DataRequired()])
+    phone = StringField("Phone No.", validators=[DataRequired()])
+    message = StringField("Message", validators=[DataRequired()])
     submit = SubmitField("Submit")
